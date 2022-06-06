@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,91 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.feedContainer{
+  width: 100%;
+  height: 100%;
+  border: 2px solid grey;
+  border-radius: 3px;
+  position: absolute;
+  background-color: rgba(255,255,255,.7);
+}
+
+.productImage{
+  width: 120px;
+   height: 120px;
+   
+}
+
+.feedTable{
+  display: grid;
+  grid-template-columns: 130px 130px ;
+ 
+}
+
+.inputContainer{
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 230px;
+  height: 120px;
+  border: 2px solid grey;
+  border-radius: 3px;
+  background-color: rgba(255,255,255,.7);
+}
+.inputContainer2{
+  margin-left: auto;
+   margin-right: auto;
+   position: relative;
+ }
+
+.inputTable{
+  display: grid;
+  width: 40px;
+  grid-template-rows: 20px 20px 20px 20px 20px;
+  grid-template-columns: auto auto;
+ 
+}
+
+.productText{
+  margin-top: -20px;
+}
+
+.productsDisplay{
+
+  display: grid;
+  grid-template-rows: 126px 126px 126px 126px 126px 126px 126px 126px 126px 126px;
+  position:relative;
+  width: 550px;
+  height: 120px;
+  margin-top: 2.5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.productsDisplay2{
+ margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+
+h3, h5{
+  margin-bottom: -10px;
+  width: 600px
+}
+
+.Front{
+height: 100%;
+width: 100%;
+position: absolute;
+backface-visibility: hidden;
+}
+.Back{
+height: 100%;
+width: 100%;
+position: absolute;
+backface-visibility: hidden;
+transform: rotateY(180deg);
 }

@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.table{
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+th{
+  border: 2px solid black;
+}
+
+th:hover{
+  
+  animation: NavHover 2s infinite;
+}
+
+@keyframes NavHover {
+  0%{}
+  50%{background-color: black;
+  color: white;}
+}
