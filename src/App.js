@@ -1,8 +1,9 @@
 import Navbar from "./Navbar";
-import "./App.css";
-import {BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./index.css";
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import CreateProduct from "./CreateProduct";
+import ProductFeedCard from "./ProductFeedCard";
 
 function App() {
 const [name, setName] = useState("");
@@ -11,7 +12,8 @@ const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState(0);
   const [qty, setQty] = useState(0);
-  const [dept, setDept] = useState(0)
+  const [dept, setDept] = useState(0);
+
   
   
   useEffect(() => {
@@ -51,8 +53,7 @@ const [name, setName] = useState("");
   };
 
 
-
-  const createProduct = () => {
+ const createProduct = () => {
     Axios.post("https://nys-react.herokuapp.com/createProduct", {
       name,
       desc,
@@ -70,128 +71,52 @@ const [name, setName] = useState("");
           price,
           qty,
           dept
-
         }
       ]);
     });
   };
 
-  
-
   return (
- <div className="App">
+ <div className="App" >
+
 
 <h1 style={{fontFamily:"Georgia", textAlign:"center"}}>New York Sity
-     <img style={{marginLeft:"10px"}} src="NYSLogo.png" alt="New York Sity" width="30px" height="30px"/>
+     <img style={{marginLeft:"10px"}} src={"NYSLogo.png"} alt="New York Sity" width="30px" height="30px"/>
      </h1>
 
-  <table className='table'>
-    <tbody>
-            <tr>
-        <th onClick={getProducts}>Home</th>
-        <th onClick={getChairs}>Chairs</th>
-        <th onClick={getCouches}>Couches</th>
-        <th onClick={getSofas}>Sofas</th>
-        <th onClick={getOtherChairs}>More Chairs</th>
-        <th>Contacts</th>
-        </tr>
-   </tbody>
 
-        </table>
+    
+ <Navbar 
+ getProducts={getProducts}
+ getChairs={getChairs}
+ getCouches={getCouches}
+ getSofas={getSofas}
+ getOtherChairs={getOtherChairs}
+ />
 
-   
-    <div className="inputContainer2">
-<div className="inputContainer">
-      <div className="inputTable">
+      <CreateProduct
+      setName={setName}
+      setDesc={setDesc}
+      setImage={setImage}
+      setPrice={setPrice}
+      setQty={setQty}
+      setDept={setDept}
+      createProduct={createProduct}
+      />
 
-         <label>Name:</label>
-        <input
-          type="text"
-          placeholder="Name..."
-          onChange={(event) => {
-            setName(event.target.value);
-          }}
-        />
-        <label>Desc:</label>
-         <input
-          type="text"
-          placeholder="Desc..."
-          onChange={(event) => {
-            setDesc(event.target.value);
-          }}
-        />
-<label>Image:</label>
-          <input
-          type="text"
-          placeholder="Image..."
-          onChange={(event) => {
-            setImage(event.target.value);
-          }}
-        />
-
-
-
-<label>Price:</label>
-        <input
-          type="number"
-          placeholder="Price..."
-          onChange={(event) => {
-            setPrice(event.target.value);
-          }}
-
-        />
-<label>Qty:</label>
-        <input
-          type="number"
-          placeholder="Quantity..."
-          onChange={(event) => {
-            setQty(event.target.value);
-          }}   
-
-        />
-
-        <label>Dept:</label>
-        <input
-          type="number"
-          placeholder="Department..."
-          onChange={(event) => {
-            setDept(event.target.value);
-          }}/>
-</div>
-
-
-
-        <button onClick={createProduct}> Create Product </button>
-
-      </div></div>
-<div className="productsDisplay2">
       <div className="productsDisplay">
-        {listOfProducts.map((product) => {
+        
+        {listOfProducts.map(( product) => {
           return (
-            <div>
-               
-              <div className="feedContainer">
-                <div className="feedTable">
-             <img className="productImage" src= {product.image} alt="Product" ></img> 
-             <div className="productText">
-             <h3>Name: {product.name}</h3>
-              <h5>Desc: {product.desc}</h5> 
-              <h5>Price: ${product.price}</h5>
-              <h5>Qty: {product.qty}</h5>
-              <h5>Dept: {product.dept}</h5>
-             
-              </div>
-              </div>
-             </div>
+          
+              <ProductFeedCard product={product} key={product.name}/>
 
-            </div>
+            
           );
         })}
       </div>
-</div>
 
-
-
+      
     </div>
   );
 }
