@@ -46,6 +46,19 @@ th:hover{
   background-color: rgba(255,255,255,.7);
 }
 
+.feedCardName{
+font-size: 1.3rem;
+font-family:Georgia;
+overflow-y: hidden;
+
+}
+
+.feedCardDesc{
+font-size: 1rem;
+overflow-y: hidden;
+
+}
+
 .productImage{
   width: 120px;
    height: 120px;
@@ -54,8 +67,9 @@ th:hover{
 
 .feedTable{
   display: grid;
-  grid-template-columns: 130px 130px ;
- 
+  grid-template-columns: 130px 130px;
+  position: relative;
+  width: 100%;
 }
 
 .inputContainer{
@@ -72,17 +86,18 @@ th:hover{
 
 .inputTable{
   display: grid;
-  width: 40px;
+  width: 4px;
   grid-template-rows: 20px 20px 20px 20px 20px;
   grid-template-columns: auto auto;
  
 }
 
 .productText{
-  margin-top: -20px;
+  position: relative;
   display: grid;
-  grid-template-rows: 25px 25px 25px 25px 25px;
+  grid-template-rows: 25px 22px 22px 22px 22px;
   grid-template-columns: auto;
+  width: 66vw;
 }
 
 .productsDisplay{
@@ -90,11 +105,13 @@ th:hover{
   display: grid;
   grid-template-rows: 126px 126px 126px 126px 126px 126px 126px 126px 126px 126px;
   position:relative;
-  width: 550px;
+  width: 100%;
+  max-width: 550px;
   height: 120px;
-  margin-top: 2.5%;
+  
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
 }
 
 h3, h5{

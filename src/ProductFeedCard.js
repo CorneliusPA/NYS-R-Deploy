@@ -9,11 +9,11 @@ const ProductFeedCard = (props) => {
                 <div className="feedTable">
              <img className="productImage" src= {props.product.image} alt="Product" ></img> 
              <div className="productText">
-             <h3>Name: {props.product.name}</h3>
-              <h5>Desc: {props.product.desc}</h5> 
-              <h5>Price: ${props.product.price}</h5>
-              <h5>Qty: {props.product.qty}</h5>
-              <h5>Dept: {props.product.dept}</h5>
+             <div className="feedCardName"><strong>{props.product.name}</strong></div>
+              <div className="feedCardDesc">Desc: {props.product.desc}</div> 
+              <div className="feedCardDesc">Price: ${props.product.price}</div>
+              <div className="feedCardDesc">Qty: {props.product.qty}</div>
+              <div className="feedCardDesc">Dept: {props.product.dept}</div>
              
               </div>
               </div>
